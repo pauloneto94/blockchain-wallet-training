@@ -153,6 +153,41 @@
           }
         }
       }
+    },
+    "Blockchain": {
+      "root": "projects/Blockchain",
+      "sourceRoot": "projects/Blockchain/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/Blockchain/tsconfig.lib.json",
+            "project": "projects/Blockchain/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/Blockchain/src/test.ts",
+            "tsConfig": "projects/Blockchain/tsconfig.spec.json",
+            "karmaConfig": "projects/Blockchain/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/Blockchain/tsconfig.lib.json",
+              "projects/Blockchain/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "blockchain-wallet-training"

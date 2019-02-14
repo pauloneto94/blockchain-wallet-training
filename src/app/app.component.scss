@@ -1,0 +1,10 @@
+$valid-color: green;
+$invalid-color: red;
+
+.valid{
+    color: $valid-color
+}
+
+.invalid{
+    color: $invalid-color
+}

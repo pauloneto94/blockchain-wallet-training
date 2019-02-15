@@ -1,6 +1,7 @@
 <header>
-    <h2 [ngClass]="{'valid': isValid, 'invalid': !isValid}" >{{title}}</h2>
-    <div>
+    
+    <div id="PJtitle">
+        <h1 [ngClass]="{'valid': isValid, 'invalid': !isValid}" >{{title}}</h1>
         {{blockchain.pendingTransactions.length}} Pending Transactions
     </div>
     <nav class="navbar navbar-default">
@@ -11,5 +12,7 @@
 
 </header>
 <main>
-    <router-outlet></router-outlet>
+    <div id="ro">
+        <router-outlet></router-outlet>
+    </div>
 </main>

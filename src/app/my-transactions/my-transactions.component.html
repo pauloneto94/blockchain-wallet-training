@@ -1,0 +1,9 @@
+<app-balance [chain]="blockchain.chain"></app-balance>
+<div id=dashboard-whapper>
+  <div *ngFor="let transaction of userTransactions">
+    <app-transaction [transaction]="transaction"></app-transaction>
+  </div>
+  <div *ngFor="let transaction of userPendingTransactions">
+    <app-transaction [transaction]="transaction"></app-transaction>
+  </div>
+</div>

@@ -17,4 +17,10 @@ export class Transaction {
         
     }
 
+    getByName(name: string): boolean{
+
+        if(this.sender == name) return true;
+
+    }
+
 }

@@ -20,4 +20,10 @@ export class Block {
 
     }
 
+    getTransactions(): Transaction[]{
+
+        return this.transactions;
+
+    }
+
 }

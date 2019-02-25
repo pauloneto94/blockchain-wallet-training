@@ -8,6 +8,8 @@ import { SendTransactionComponent } from './send-transaction/send-transaction.co
 import { BalanceComponent } from './balance/balance.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlockComponent } from './block/block.component';
+import { MyTransactionsComponent } from './my-transactions/my-transactions.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const GenesisProvider = () => {
 
@@ -21,7 +23,9 @@ const GenesisProvider = () => {
     SendTransactionComponent,
     BalanceComponent,
     DashboardComponent,
-    BlockComponent
+    BlockComponent,
+    MyTransactionsComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

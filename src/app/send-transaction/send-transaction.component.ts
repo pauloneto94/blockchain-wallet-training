@@ -27,7 +27,7 @@ export class SendTransactionComponent implements OnInit {
 
     const id = this.blockchainService.blockchain.nodeUrl;
 
-    const transaction = new Transaction(amount, id, recipient);
+    const transaction = new Transaction(amount, 'Paulo', recipient);
 
     this.blockchainService.addTransaction(transaction);
 

@@ -11,23 +11,26 @@ export class MyTransactionsComponent implements OnInit {
   public userTransactions: Transaction[];
   public userPendingTransactions: Transaction[];
   public blockchain: Blockchain;
-  public bl: any;
+  public isValid1 = true;
+ 
   
-  constructor(@Inject(BlockchainService) private blockchainService: BlockchainService) {}
-
-  ngOnInit() {
+  constructor(@Inject(BlockchainService) private blockchainService: BlockchainService) {
 
     this.blockchain = this.blockchainService.blockchain;
 
+  }
+
+  ngOnInit() {
+    
     this.userPendingTransactions = this.blockchainService.blockchain.pendingTransactions.filter((transaction) => {
 
       return transaction.getByName('Paulo');
 
     });
 
-      for(this.bl in this.blockchainService.blockchain.chain){
+      for(const bl of this.blockchainService.blockchain.chain){
 
-        this.userTransactions = this.bl.getTransactions().filter((transaction: any) =>{
+        this.userTransactions = bl.getTransactions().filter((transaction) =>{
 
           return transaction.getByName('Paulo');
 

@@ -21,25 +21,27 @@ export class BalanceComponent implements OnInit {
 
   }
 
-  getBalance(owner: string){
-
+  getBalance(owner: string) {
+    
     this.owner = owner;
     const initial = new Transaction(0, 'system', owner);
-
-    const transactionReducer = (transaction: Transaction, total: Transaction) => {
-
-      if(transaction.recipient === owner){
-        total.amount = Number(transaction.amount) + Number(total.amount);
+    let total = 0;
+    this.chain.filter((block: Block) => {
+    
+      for (const transaction of block.transactions) {
+    
+        if ( transaction.recipient === initial.recipient) {
+    
+          total += Number(transaction.amount);
+    
+        }
+    
       }
-      return total;
+    
+    });
+    
+    this.value = total;
+    
     }
-
-    const chain = JSON.parse(JSON.stringify(this.chain));
-    const transactions = chain.map((block: Block) => {
-      return block.transactions.reduce(transactionReducer, initial);
-    });       
-    const balance = transactions.reduce(transactionReducer, initial);
-    this.value = balance.amount;
-  }
 
 }

@@ -1,7 +1,6 @@
 <div>
-  <input #owner type="text">
-  <button (click)="getBalance(owner.value)">Get Balance</button><br>
+  <button (click)="getBalance()">Get Balance</button><br>
   <span class="balance">
-    Saldo de {{owner.value}}: R${{value}}
+    Saldo de {{balance.owner}}: R${{balance.value}}
   </span>
 </div>

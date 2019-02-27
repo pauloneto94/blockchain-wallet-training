@@ -10,6 +10,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlockComponent } from './block/block.component';
 import { MyTransactionsComponent } from './my-transactions/my-transactions.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { LoginComponent } from './login/login.component';
+import { UserService } from 'projects/blockchain/src/lib/user.service';
+import { UserPageComponent } from './user-page/user-page.component';
 
 const GenesisProvider = () => {
 
@@ -25,7 +28,9 @@ const GenesisProvider = () => {
     DashboardComponent,
     BlockComponent,
     MyTransactionsComponent,
-    TransactionComponent
+    TransactionComponent,
+    LoginComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ const GenesisProvider = () => {
     TooltipModule.forRoot()
   ],
   providers: [{provide: 'GENESIS_BLOCK', useFactory: GenesisProvider},
-              BlockchainService],
+              BlockchainService, UserService],
               
   bootstrap: [AppComponent]
 })

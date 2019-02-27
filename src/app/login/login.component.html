@@ -1,0 +1,20 @@
+
+
+
+        <div class="login-inputs">
+            <b>Login:</b> 
+            <br><input #username id="loginInput" type="text"><br>
+            <label id="loginMsg">{{usernameMessage}}</label><br>
+            <b>Password:</b> 
+            <br><input #password type="password" id="pswInput"><br>
+            <label id="pswMsg">{{passwordMessage}}</label><br>
+        </div>
+
+
+            <button id="loginBtn" (click)="onLogin(username.value, password.value) ">Login</button>
+
+
+        <div class="success">
+            <label id="loginSuccess">{{successMessage}}</label>
+        </div>
+

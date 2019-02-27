@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Block, Transaction } from 'projects/blockchain/src/public_api';
+import { UserService } from 'projects/blockchain/src/lib/user.service';
 
 @Component({
   selector: 'app-balance',
@@ -13,7 +14,11 @@ export class BalanceComponent implements OnInit {
   public value = 0;
   public balance: { owner: string, value: number };
   
-  constructor() { }
+  constructor(@Inject(UserService) private userService: UserService) { 
+
+    this.owner = this.userService.username();
+
+  }
 
   ngOnInit() {
 
@@ -21,10 +26,10 @@ export class BalanceComponent implements OnInit {
 
   }
 
-  getBalance(owner: string) {
+  getBalance() {
     
-    this.owner = owner;
-    const initial = new Transaction(0, 'system', owner);
+    
+    const initial = new Transaction(0, this.owner, this.owner);
     let total = 0;
     this.chain.filter((block: Block) => {
     
@@ -35,6 +40,12 @@ export class BalanceComponent implements OnInit {
           total += Number(transaction.amount);
     
         }
+
+        if ( transaction.sender === initial.sender) {
+    
+          total -= Number(transaction.amount);
+    
+        }
     
       }
     
@@ -42,6 +53,8 @@ export class BalanceComponent implements OnInit {
     
     this.value = total;
     
-    }
+    this.balance = { owner: this.owner, value: this.value };  
+  
+  }
 
 }

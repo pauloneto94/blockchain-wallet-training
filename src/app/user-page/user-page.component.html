@@ -1,0 +1,14 @@
+<header>
+    <nav class="navbar navbar-default">
+        <button class="btn btn-primary" [routerLink]="['send-transaction']">Send Transaction</button>
+        <button class="btn btn-primary" [routerLink]="['my-transactions']">My Transactions</button>
+        <button class="btn btn-primary" [routerLink]="['dashboard']">Dashboard</button>
+        <button class="btn btn-primary" tooltip="Mine new block" (click)="onMine()">Mine</button>
+    </nav>
+
+</header>
+<main>
+    <div id="ro">
+        <router-outlet></router-outlet>
+    </div>
+</main>

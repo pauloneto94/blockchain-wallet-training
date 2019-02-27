@@ -1,11 +1,10 @@
 <app-balance [chain]="blockchain.chain"></app-balance>
 <div id=dashboard-whapper>
-    <h2>Mined Transactions</h2><h3 [ngClass]="{'valid': isValid1, 'invalid': !isValid1}" > - No mined transactions</h3>
+    <h2>Mined Transactions</h2><h5 id="minedMsg">{{minedMessage}}</h5>
   <div *ngFor="let transaction of userTransactions">
     <app-transaction [transaction]="transaction"></app-transaction>
-    <h3 [ngClass]="{'valid': isValid1, 'invalid': !isValid1}" >No mined transactions</h3>
   </div>
-  <h2>Pending Transactions</h2>
+  <h2>Pending Transactions</h2><h5 id="pendingMsg" >{{pendingMessage}}</h5>
   <div *ngFor="let transaction of userPendingTransactions">
     <app-transaction [transaction]="transaction"></app-transaction>
   </div>
